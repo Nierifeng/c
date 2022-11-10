@@ -3,24 +3,18 @@
   "version": "3.6.3",
   "private": true,
   "scripts": {
-    "dev": "NODE_OPTIONS=--max-old-space-size=4096 vite",
-    "serve": "pnpm dev",
-    "build": "rimraf dist && NODE_OPTIONS=--max-old-space-size=8192 vite build",
+    "dev": "vite",
+    "serve": "npm dev",
+    "build": "rimraf dist && vite build",
     "build:staging": "rimraf dist && vite build --mode staging",
     "report": "rimraf dist && vite build",
     "preview": "vite preview",
-    "preview:build": "pnpm build && vite preview",
+    "preview:build": "npm build && vite preview",
     "typecheck": "tsc --noEmit && vue-tsc --noEmit --skipLibCheck",
-    "cloc": "NODE_OPTIONS=--max-old-space-size=4096 cloc . --exclude-dir=node_modules --exclude-lang=YAML",
-    "clean:cache": "rm -rf node_modules && rm -rf .eslintcache && npm cache clean --force && pnpm install",
     "lint:eslint": "eslint --cache --max-warnings 0  \"{src,mock,build}/**/*.{vue,js,ts,tsx}\" --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,css,scss,postcss,less}\" --cache --cache-location node_modules/.cache/stylelint/",
-    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
-    "lint:pretty": "pretty-quick --staged",
-    "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:stylelint",
-    "prepare": "husky install",
-    "preinstall": "npx only-allow pnpm"
+    "lint": "npm lint:eslint && npm lint:prettier && npm lint:stylelint"
   },
   "browserslist": [
     "> 1%",
@@ -43,6 +37,7 @@
     "element-plus": "^2.2.16",
     "element-resize-detector": "^1.2.3",
     "js-cookie": "^3.0.1",
+    "leader-line-vue": "^2.1.1",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "lodash-unified": "^1.0.2",
@@ -61,8 +56,6 @@
     "xe-utils": "^3.5.6"
   },
   "devDependencies": {
-    "@commitlint/cli": "13.1.0",
-    "@commitlint/config-conventional": "13.1.0",
     "@iconify-icons/ep": "^1.2.7",
     "@iconify-icons/ri": "^1.2.3",
     "@iconify/vue": "^3.2.1",
@@ -85,20 +78,18 @@
     "@vue/runtime-core": "^3.2.40",
     "autoprefixer": "^10.4.12",
     "cloc": "^2.10.0",
+    "cross-env": "7.0.3",
     "cssnano": "^5.1.13",
     "eslint": "^8.8.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.4.1",
     "font-awesome": "^4.7.0",
-    "husky": "^7.0.4",
-    "lint-staged": "11.1.2",
     "picocolors": "^1.0.0",
     "postcss": "^8.4.17",
     "postcss-html": "^1.5.0",
     "postcss-import": "^15.0.0",
     "postcss-scss": "^4.0.5",
     "prettier": "^2.5.1",
-    "pretty-quick": "3.1.1",
     "rimraf": "3.0.2",
     "rollup-plugin-visualizer": "^5.8.2",
     "sass": "^1.53.0",
@@ -119,16 +110,9 @@
     "vite-plugin-mock": "^2.9.6",
     "vite-plugin-remove-console": "^1.1.0",
     "vite-svg-loader": "^3.6.0",
+    "vue-demi": "^0.13.11",
     "vue-eslint-parser": "^8.2.0",
     "vue-tsc": "^0.40.13"
-  },
-  "pnpm": {
-    "peerDependencyRules": {
-      "ignoreMissing": [
-        "rollup",
-        "webpack"
-      ]
-    }
   },
   "repository": "git@github.com:xiaoxian521/pure-admin-thin.git",
   "author": "xiaoxian521",
