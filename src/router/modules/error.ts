@@ -6,6 +6,7 @@ const errorRouter: RouteConfigsTable = {
   meta: {
     icon: "information-line",
     title: "异常页面",
+    showLink: false,
     rank: 9
   },
   children: [
